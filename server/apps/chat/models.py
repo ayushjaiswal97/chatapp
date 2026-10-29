@@ -1,9 +1,9 @@
 from django.db import models
-from shortuuidfield import ShortUUIDField
+import shortuuid
 from apps.user.models import User
 
 class ChatRoom(models.Model):
-	roomId = ShortUUIDField()
+	roomId = models.CharField(max_length=22, unique=True, editable=False, default=shortuuid.uuid)
 	type = models.CharField(max_length=10, default='DM')
 	member = models.ManyToManyField(User)
 	name = models.CharField(max_length=20, null=True, blank=True)

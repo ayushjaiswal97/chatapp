@@ -7,17 +7,21 @@ A chatting app made with django-rest-framework, django-signal &amp; react.js
 To install this app please follow this below steps:
 ### Run Backend
 ```
-1. Create a virtual environment `virtualenv venv`
-2. And activate it `source venv/bin/activate`(for ubuntu) `venv\Scripts\activate`(for windows)
-3. Then change the directory to server/ and install dependencies `pip install -r requirements.txt`
-4. Migrate to database `python manage.py migrate`
-5. Now run the server `python manage.py runserver`
+1. From the repository root, create an environment with your installed Python: `py -m venv venv`
+2. Activate it on Windows: `venv\Scripts\Activate.ps1`
+   - If script execution is disabled: `Set-ExecutionPolicy -Scope Process Bypass`
+3. Change to the server directory: `cd server`
+4. Install dependencies: `python -m pip install --upgrade pip setuptools wheel` followed by `python -m pip install -r requirements.txt`
+5. Create the database: `python manage.py migrate`
+6. Start the server: `python manage.py runserver`
+
+Ubuntu activation: `source ../venv/bin/activate` after creating the environment from the repository root.
 ```
 ### Run Front-end
 ```
-1. Change the directory to clients/
-2. Install dependencies `npm install`
-3. Now start the server `npm start`
+1. Change to the frontend directory: `cd client`
+2. Install dependencies: `npm.cmd install`
+3. Start the frontend: `npm.cmd start`
 ```
 
 Now you'll be redirected to `localhost:3000` Then open two browser window and do the signup with name, email, profile image and start chatting from two different window. 

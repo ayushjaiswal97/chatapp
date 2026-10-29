@@ -3,7 +3,7 @@
 from django.conf import settings
 from django.db import migrations, models
 import django.db.models.deletion
-import shortuuidfield.fields
+import shortuuid
 
 
 class Migration(migrations.Migration):
@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
             name='ChatRoom',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('roomId', shortuuidfield.fields.ShortUUIDField(blank=True, editable=False, max_length=22)),
+                ('roomId', models.CharField(default=shortuuid.uuid, editable=False, max_length=22, unique=True)),
                 ('type', models.CharField(default='DM', max_length=10)),
                 ('name', models.CharField(blank=True, max_length=20, null=True)),
                 ('member', models.ManyToManyField(to=settings.AUTH_USER_MODEL)),

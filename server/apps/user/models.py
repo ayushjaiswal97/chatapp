@@ -1,9 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from shortuuidfield import ShortUUIDField
+import shortuuid
 
 class User(AbstractUser):
-	userId = ShortUUIDField()
+	userId = models.CharField(max_length=22, unique=True, editable=False, default=shortuuid.uuid)
 	image = models.ImageField(upload_to="user")
 
 class OnlineUser(models.Model):
